@@ -1,0 +1,5 @@
+Bat : Animal
+Goat : Animal
+Apple : Fruit
+Dog : Animal
+
