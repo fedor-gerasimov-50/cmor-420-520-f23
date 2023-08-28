@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Simple example}
+\author{Jesse Chan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This is a Section. I am going to reference the advection equation (\ref{eq:advection})
+
+Here is an equation in the way
+\begin{equation}
+F = ma.
+\end{equation}
+
+Here are multiple equations:
+\begin{align}
+  F &= ma\\
+  E &= mc^2\\
+  y &= ax + b
+\end{align}
+
+Here are multiple unlabeled equations:
+\begin{align*}
+  F &= ma\\
+  E &= mc^2\\
+  y &= ax + b
+\end{align*}
+
+Figure \ref{fig:example_fig} has nothing to do with equation (\ref{eq:advection}).
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.75\textwidth]{image.png}
+\caption{This is an example image.}
+\label{fig:example_fig}
+\end{figure}
+
+Table \ref{tab:example_table} is an example of a Table in \LaTeX.
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|l|c|c|r|}
+    \hline
+    Row 1 & $E=mc^2$ & $\frac{1}{2}$ & $\nabla u$\\
+    Row 2 & $ax = b$ & $\frac{2}{3}$ & $\nabla\cdot U$\\
+    \hline
+  \end{tabular}
+  \caption{This is an example table.}
+  \label{tab:example_table}
+\end{table}
+
+% This is a comment
+% Other useful mathematical environments: gather, $, $$, \[\]
+
+A single equation inline $ax+b$. A separate equation
+$$
+ax+b
+$$
+Another way of defining a separate equation
+\[
+F=ma
+\]
+
+\begin{equation}
+\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} = 0.
+\label{eq:advection}
+\end{equation}
+
+Here I am citing paper \cite{first_citation} and then \cite{second_citation}.
+
+\begin{thebibliography}{9}
+\bibitem{first_citation} First citation author. \textit{First citation title}
+\bibitem{second_citation} Second citation author. ``First citation title''.
+\end{thebibliography}
+
+\end{document}
