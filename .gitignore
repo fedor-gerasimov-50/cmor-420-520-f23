@@ -2,3 +2,6 @@
 *~
 c_codes/old
 c_codes/a.out
+*.aux
+
+*.log
