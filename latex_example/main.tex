@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum} 
+
+\title{An intro to \LaTeX}
+\author{Jesse Chan and the CMOR 420/520 class}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content. Content.
+
+\subsection{Subsection 1}
+
+\subsubsection{Even more subsection}
+
+The math environment 
+$$\log(x)e^{2y} \gamma \in A$$
+is the same as the math environment
+\[
+\log(x)e^{2y} \gamma \in A
+\]
+
+\begin{align}
+  f &= \log(x)e^{2y} \gamma \in A  \label{eq:log} \\
+  g &= \sin(\pi x)\log(ab)e^{2e} \gamma \in B  \\
+  h &= \log(c)e^{2y} (1 + 2 + x + d) \gamma \in C    
+\end{align}
+
+% Comments: other useful environments like "gather", "subequations", "bmatrix", etc.
+
+I am referencing equation (\ref{eq:log}). \lipsum
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.4\textwidth]{image.png}
+  \caption{This is Rice's logo.}
+  \label{fig:rice}
+\end{figure}
+
+Figure \ref{fig:rice} is the Rice logo.
+
+\begin{table}
+  \centering
+  \begin{tabular}{|c|ccc|}
+    Column 1 & Col 2 & C3 & c4 \\
+    Column 1 & Col 2 & C3 & c4
+  \end{tabular}
+\end{table}
+
+\end{document}
