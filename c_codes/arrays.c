@@ -3,17 +3,21 @@
 
 int main(void){
 
-  int n = 100;  
+  int n = 9;
+  int width = n / 2;
 
-  // statically defined array; stored on the "stack"
-  int x[n];
+  int * x = (int *) malloc(sizeof(int) * n);
   for (int i = 0; i < n; ++i){
     x[i] = i;
   }
 
-  // dynamic array; stored on the "heap"
-  int * y = (int *) malloc(sizeof(int) * n);
-  free(y);
+  x = &x[width];
+  for (int i = -width; i < width + 1; ++i){
+    //x[i] --> *(x + i)
+    printf("x[%d] = %d\n", i, x[i]);
+  }
+
+  free(&x[-width]);
      
   return 0;
 }

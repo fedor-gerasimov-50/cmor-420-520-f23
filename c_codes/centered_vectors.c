@@ -13,10 +13,11 @@ int main(void){
 
   x = &x[width];
   for (int i = -width; i < width + 1; ++i){
-    //x[i] --> *(x + i)
+    //recall that x[i] --> *(x + i)
     printf("x[%d] = %d\n", i, x[i]);
   }
 
+  // to free the pointer, we need to 
   free(&x[-width]);
      
   return 0;
