@@ -22,7 +22,6 @@ int main(void){
     C[i] = C[i-1] + n;
   }
 
-  printf("C = [\n");
   for (int i = 0; i < m; ++i){
     for (int j = 0; j < n; ++j){
       //A[i + j * m] = (i+j); // A[i,j] in column major format
@@ -30,10 +29,18 @@ int main(void){
       B[i][j] = (i+j);      
       C[i][j] = (i+j);
     }
-    printf("\n");
   }
-  printf("]\n");  
+
+  // free allocated memory
+  free(A);
   
+  for (int i = 0; i < m; ++i){
+    free(B[i]);
+  }
+  free(B);
+  
+  free(C[0]);
+  free(C);  
 
   
   
