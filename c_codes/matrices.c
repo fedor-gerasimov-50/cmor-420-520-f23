@@ -40,9 +40,7 @@ int main(void){
   free(B);
   
   free(C[0]);
-  free(C);  
-
-  
+  free(C);    
   
   return 0;
 }
