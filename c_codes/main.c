@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// this code showcases basic control flow and ternary operations
 int main(void)
 {
   // Note: &, |, ^, ~, <<, >> are special bitwise operations that you should be careful with
