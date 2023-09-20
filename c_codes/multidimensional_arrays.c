@@ -14,12 +14,26 @@ int main(void){
   for (int i = 0; i < m; ++i){
     B[i] = (int *) malloc(sizeof(int) * n);
   }
-  
+
+  // matrix in contiguous memory 
   int ** C = (int **) malloc(sizeof(int *) * m);
   C[0] = (int *) malloc(sizeof(int) * m * n);
   for (int i = 1; i < m; ++i){
     C[i] = C[i-1] + n;
   }
+  
+  // 3D matrices m x n x o
+  int o = 7;
+
+  // non-contiguous memory
+  int *** D = (int ***) malloc(sizeof(int **) * m);
+  for (int i = 0; i < m; ++i){
+    D[i] = (int **) malloc(sizeof(int *) * n);
+    for (int j = 0; j < n; ++j){
+      D[i][j] = (int *)  malloc(sizeof(int) * o);
+    }
+  }
+
 
   printf("C = [\n");
   for (int i = 0; i < m; ++i){
@@ -38,9 +52,19 @@ int main(void){
     }
     printf("\n");
   }
-  printf("]\n");  
-  
+  printf("]\n");
 
+  
+  // free all pointers
+  free(A);
+
+  for (int i = 0; i < m; ++i){
+    free(B[i]);
+  }
+  free(B);
+
+  free(C[0]);
+  free(C);
   
   
   return 0;
