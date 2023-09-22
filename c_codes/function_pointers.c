@@ -1,19 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void foo(int x){
-  printf("in `foo`, x = %d\n", x);
+void foo(void * x){
+  // x should be type "int" here
+  printf("in `foo`, x = %d\n", *((int *)x));
 }
 
-void bar(int x){
-  printf("in `bar`, x = %d\n", x);
+void bar(void * x){  
+  // x should be type "float" here
+  printf("in `bar`, x = %f\n", *((float *)x));
 }
 
 // This file illustrates the use of a function pointer
 int main(void){
 
-  void (*fun_ptr)(int) = foo;
-  (*fun_ptr)(1);
+  int x = 1;
+  void (*fun_ptr)(void *) = &foo;
+  (*fun_ptr)(&x);
+
+  fun_ptr = bar;
+  (*fun_ptr)(&x);  
   
   return 0;
 }
