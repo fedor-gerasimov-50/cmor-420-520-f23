@@ -12,6 +12,10 @@ Vector init_vector(int n){
   return vector;
 }
 
+void free_vector(Vector x){
+  free(x.ptr);
+}
+
 void set_index_Vector(Vector * x,
 		      double value,
 		      int index){
@@ -28,4 +32,6 @@ int main(void){
   for (int i = 0; i < x.n; ++i){
     printf("x.ptr[%d] = %f\n", i, x.ptr[i]);
   }
+
+  free_vector(x);
 }
