@@ -1,7 +1,6 @@
 *.DS_Store
 *~
 c_codes/old
-c_codes/a.out
+a.out
 *.aux
-
 *.log
