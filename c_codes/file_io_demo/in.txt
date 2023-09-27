@@ -1,0 +1,8 @@
+This is the first line.
+Here is a second line.
+Here are some numbers (the count, then the list)
+4
+2.0
+3.0
+1.1
+2.45
