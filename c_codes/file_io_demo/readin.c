@@ -7,6 +7,7 @@
 
 int main(int argc, char ** argv){
 
+  /*
   FILE * fp = fopen("in.txt", "r");
   
   char buffer[BUFSIZ];
@@ -18,30 +19,26 @@ int main(int argc, char ** argv){
   printf("Second line read by fgets: %s\n", buffer);
   
   fclose(fp);
+  */
+  
+  
   /*
-  int x;
+    int x;
   char c;
   printf("Enter an int and a char, separated "
 	 "by a space:\n");	 
   scanf("%d %c", &x, &c);
   printf("Scanned variables: x = %d, c = %c\n", x, c);
   */
-
-  char str[BUFSIZ];
-  printf("Enter a single word:\n");
-  scanf("%s", str);
-  printf("The word entered is: %s\n", str);
+  // use sscanf to parse a date  
 
   int day, month;
-  char year_end[2];  
+  char year[2];  
   char tmp[BUFSIZ];
 
-  sscanf("Date: 9/29/23",
-	 "%s %d/%d/%s", tmp, &day, &month, year_end);
-
-  char year[BUFSIZ];
-  sprintf(year, "20%s", year_end);
+  sscanf("Date: 9/29/23", "%s %d/%d/%s",
+	 tmp, &month, &day, year);
   printf("Day, month, year = %d, %d, %s\n",
-	 day, month, year);
+	 day, month, year); 
 
 }
