@@ -1,0 +1,27 @@
+# the Makefile format is "target : dependency"
+CC = gcc
+INCLUDE_DIR = ./include
+CFLAGS = -I$(INCLUDE_DIR)
+DEPS = include/foo.h include/bar.h
+
+# first target is always run
+all: main
+
+# make main depend on obj/foo.o and 
+main: obj/foo.o obj/bar.o $(DEPS)
+	$(CC) $(CFLAGS) obj/foo.o obj/bar.o main.c -o main
+
+# The $@ symbol refers to the term on the left of ":".
+# The $^ symbol refers to the term on the right of ":".
+# Thus "$(CC) $(CFLAGS) -c -o $@ $<" expands out to
+# 	$(CC) $(CFLAGS) -c -o obj/*.o src/*.c"
+# where * is any file in src/
+
+obj/%.o: src/%.c $(DEPS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# .PHONY tells Make to ignore any file named "clean"
+.PHONY: clean 
+
+clean:
+	rm -f a.out obj/*.o

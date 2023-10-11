@@ -1,0 +1,17 @@
+# the Makefile format is "target : dependency"
+CC = gcc
+INCLUDE_DIR = ./include
+CFLAGS = -I$(INCLUDE_DIR)
+
+# make main depend on obj/foo.o and obj/bar.o
+main: obj/foo.o obj/bar.o
+	$(CC) $(CFLAGS) obj/foo.o obj/bar.o main.c -o main
+
+obj/foo.o: src/foo.c include/foo.h
+	$(CC) $(CFLAGS) -c src/foo.c -o obj/foo.o
+
+obj/bar.o: src/bar.c include/bar.h
+	$(CC) $(CFLAGS) -c src/bar.c -o obj/bar.o
+
+clean:
+	rm -f a.out obj/*.o

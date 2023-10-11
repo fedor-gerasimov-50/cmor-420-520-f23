@@ -1,0 +1,14 @@
+# the Makefile format is "target : dependency"
+
+# make main depend on obj/foo.o and 
+main: obj/foo.o obj/bar.o
+	gcc -I./include obj/foo.o obj/bar.o main.c -o main
+
+obj/foo.o: src/foo.c include/foo.h
+	gcc -I./include -c src/foo.c -o obj/foo.o
+
+obj/bar.o: src/bar.c include/bar.h
+	gcc -I./include -c src/bar.c -o obj/bar.o
+
+clean:
+	rm -f a.out obj/*.o

@@ -1,0 +1,6 @@
+# the Makefile target format is "target : dependency"
+main: src/foo.c
+	gcc -I./include src/foo.c main.c -o main
+
+clean:
+	rm -f a.out
