@@ -4,3 +4,5 @@ c_codes/old
 a.out
 *.aux
 *.log
+
+*.o
