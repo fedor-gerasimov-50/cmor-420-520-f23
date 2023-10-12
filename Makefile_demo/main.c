@@ -9,5 +9,7 @@ int main(){
   Bar bar = {2};
   print_Bar(&bar);
 
+  // comment 
+
   return 0;
 }
