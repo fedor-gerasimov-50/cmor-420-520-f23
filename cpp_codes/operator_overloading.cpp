@@ -8,34 +8,44 @@ public:
     _length = length;
     _data = new double [length];
   }
+
   int length() const{
     return _length;
   }
-  double get_index(int i) const{
+
+  // enables indexing (e.g., x[i] = 10.0);
+  double & operator[](const int i){
     return _data[i];
   }
-  void set_index(int i, double value){
-    _data[i] = value;
+
+  // a "const" version of the same operator
+  const double & operator[](const int i) const{
+    return _data[i];
   }
+
   void print(std::string name);
   
 private:
   
   int _length;
   double * _data;
+  friend Vector operator+(const Vector & x, const Vector & y);
+  
 };
 
 void Vector::print(std::string name){
   for (int i = 0; i < _length; ++i){
-    std::cout << name << "[" << i << "] = " << _data[i] << std::endl;
+    std::cout << name << "[" << i << "] = ";
+    std::cout << _data[i] << std::endl;
   }
 }
 
-// a "free" function
+// a "free" function. Note that this calls the
+// "const" version of the operator overloading
 Vector operator+(const Vector & x, const Vector & y){
-  Vector out(x.length());
+  Vector out(x._length);
   for (int i = 0; i < x.length(); ++i){
-    out.set_index(i, x.get_index(i) + y.get_index(i));
+    out[i] = x[i] + y[i];
   }
   return out;
 }
@@ -45,13 +55,13 @@ int main(void){
 
   int length = 2;
   Vector x(length);
-  x.set_index(0, 1.1);
-  x.set_index(1, 2.2);  
+  x[0] = 1.1;
+  x[1] = 1.2;  
   x.print("x");
 
   Vector y(length);
-  y.set_index(0, 0.9);
-  y.set_index(1, 0.8);  
+  y[0] = 0.9;
+  y[1] = 0.8;  
   y.print("y");
 
   Vector z = (x + y);
