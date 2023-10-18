@@ -1,33 +1,37 @@
 #include <cstdio> 
 #include <iostream>
 
-class Foo{
+class Vector{
 public:
-  void set_x(int value);
-  int get_x();
-
-  Foo(){
-    std::cout << "Running the constructor" << std::endl;
-    x = 0;
-  }
-  ~Foo(){
-    std::cout << "Running the destructor" << std::endl;
+  Vector(int length){
+    _length = length;
+    _data = new double [length];
   }
 
-private: 
-  int x;
+  //  return_type operator[](inputs){
+  //    
+  //  }
+
+  // function declaration
+  void print(std::string variable_name); 
+  
+private:  
+  int _length;
+  double * _data;
+  
 };
 
-void Foo::set_x(int value){
-  x = value;
-}
-
-int Foo::get_x(){
-  return x;
+void Vector::print(std::string variable_name){
+  for (int i = 0; i < _length; ++i){
+    std::cout << variable_name << "[" << i << "] = ";
+    std::cout << _data[i] << std::endl;
+  }
 }
 
 int main(void) {
-  Foo foo;
-  foo.set_x(10);
-  std::cout << "foo.x = " << foo.get_x() << std::endl;
+
+  Vector xx(13);
+  xx.print("xx");
+  
+  return 0;
 }

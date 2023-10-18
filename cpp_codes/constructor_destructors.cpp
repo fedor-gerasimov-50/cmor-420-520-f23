@@ -7,6 +7,7 @@ public:
   Foo(){
     std::cout << "Running the default constructor" << std::endl;
   };
+  
   ~Foo(){
     std::cout << "Running the default destructor" << std::endl;
   };
@@ -19,7 +20,6 @@ public:
     std::cout << "Running the copy assignment constructor" << std::endl;
     return *this;
   }
-
   
 };
 
