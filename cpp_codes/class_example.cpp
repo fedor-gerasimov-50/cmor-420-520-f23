@@ -8,12 +8,8 @@ public:
     _data = new double [length];
   }
 
-  //  return_type operator[](inputs){
-  //    
-  //  }
-
-  // function declaration
-  void print(std::string variable_name); 
+  // function declarations
+  void print(std::string variable_name);
   
 private:  
   int _length;
@@ -30,8 +26,8 @@ void Vector::print(std::string variable_name){
 
 int main(void) {
 
-  Vector xx(13);
-  xx.print("xx");
+  Vector x(13);
+  x.print("x");
   
   return 0;
 }
