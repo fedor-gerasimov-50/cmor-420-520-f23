@@ -1,6 +1,7 @@
 *.DS_Store
 *~
 c_codes/old
+cpp_codes/old
 a.out
 *.aux
 *.log
