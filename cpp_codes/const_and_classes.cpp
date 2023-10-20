@@ -7,8 +7,12 @@ public:
     _name = name;
   }
 
-  std::string get_name() const{
+  std::string get_name(){
     return _name;
+  }
+
+  std::string get_name() const {
+    return "(const version) " + _name;
   }
   
 private:
@@ -29,3 +33,4 @@ int main(void){
 
   return 0;
 }
+
