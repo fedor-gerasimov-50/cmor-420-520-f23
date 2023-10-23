@@ -1,6 +1,6 @@
 #include <iostream>
 
-class Base1{
+class Base{
 public:
   // virtual = default print() function
   virtual void print(){
@@ -8,46 +8,26 @@ public:
   };
 };
 
-class Base2{
-public:
-  int x;
-};
-
-class DerivedFromBase1 : public Base1{
+class DerivedFromBase : public Base{
 public:
   void print(){
-    std::cout << "running print() in class `DerivedFromBase1`" << std::endl;
+    std::cout << "running print() in class `DerivedFromBase`" << std::endl;
   }  
-};
-
-class DerivedFromBothBases : public Base1, public Base2{
-public:
-  void print(){
-    std::cout << "running print() in class `DerivedFromBothBases`" << std::endl;
-  }
 };
 
 int main(void){
 
-  Base1 base;
+  Base base;
   base.print();
   
-  DerivedFromBase1 foo;
-  DerivedFromBothBases bar;
+  DerivedFromBase foo;
 
   foo.print();
-  bar.print();
 
   // we can create pointers to base classes
   // but assign the address of a derived class.
-  Base1 * baz;
+  Base * baz;
   baz = &foo;
   baz->print();
-
-  baz = &bar;
-  baz->print();
-
-  // the following will not work
-  //  Base2 * base2_instance = &foo;
 
 }
