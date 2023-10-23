@@ -1,35 +1,59 @@
 #include <iostream>
 
 class Vector{
+
 public:
+  // constructor
   Vector(int length){
     _length = length;
     _data = new double [length];
   }
 
-  /*
-  // destructor
+  // destructor  
   ~Vector(){
     delete [] _data;
   }
-  */
 
+  // copy constructor
+  Vector(const Vector & copy_from){
+    _length = copy_from.get_length();
+    _data = new double [_length];
+    for (int i = 0; i < _length; ++i){
+      _data[i] = copy_from[i];
+    }
+  }
+
+  // copy move constructor
+  Vector & operator=(const Vector & copy_from){
+    if (_length != copy_from.get_length()){
+      std::cout << "ERROR: vectors are not the same length";
+      std::cout << std::endl;
+    }
+    
+    for (int i = 0; i < _length; ++i){
+      _data[i] = copy_from[i];
+    }
+
+    return *this;
+  }
+  
+  
   // function declarations
-  int get_length(){
+  int get_length() const{
     return _length;
   };
 
   void print(std::string variable_name);
 
-  double & operator[](const int index){
+  double & operator[](const int index) const {  
     return _data[index];
   }
-
+  
   Vector & operator+=(Vector x){
     for (int i = 0; i < x.get_length(); ++i){
       _data[i] += x[i];
     }
-    return *this; // pointer to the instance that calls this function
+    return *this; // pointer to the instance 
   }
   
 private:  
@@ -39,7 +63,7 @@ private:
   
 };
 
-Vector operator+(Vector x, Vector y){
+Vector operator+(const Vector & x, const Vector & y){
   Vector out(x.get_length());
   for (int i = 0; i < out.get_length(); ++i){
     out[i] = x[i] + y[i];
@@ -47,7 +71,7 @@ Vector operator+(Vector x, Vector y){
   return out;
 }
 
-Vector operator*(double x, Vector & y){
+Vector operator*(double x, const Vector & y){
   Vector out(y.get_length());
   for (int i = 0; i < out.get_length(); ++i){
     out[i] = x * y[i];
@@ -55,10 +79,9 @@ Vector operator*(double x, Vector & y){
   return out;
 }
 
-Vector operator*(Vector x, double y){
+Vector operator*(const Vector & x, double y){
   return y * x;
 }
-
 
 void Vector::print(std::string variable_name){
   for (int i = 0; i < _length; ++i){
@@ -77,8 +100,17 @@ int main(void) {
     y[i] = 1-i;
   }
 
-  Vector z = x + y;
-  z.print("z");
+  x.print("x");
+  y.print("y");
+  
+  // this calls the "copy constructor"
+  Vector z = x;
+  z.print("(Vector z = x)");
 
+  // this calls the "copy move constructor"
+  z = y;
+  y[0] = 13;
+  z.print("(z = y)");
+  
   return 0;
 }

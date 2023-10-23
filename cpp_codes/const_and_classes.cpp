@@ -1,7 +1,6 @@
 #include <iostream>
 
 class Foo{
-
 public:
   Foo(std::string name){
     _name = name;
@@ -16,14 +15,12 @@ public:
   }
   
 private:
-
-  std::string _name;
-  
+  std::string _name; 
 };
 
-void print(const Foo foo){
+void print(Foo foo){
   std::cout << "This is calling `print` for the variable ";
-  std::cout << foo.get_name() << std::endl;
+  std::cout << "'" << foo.get_name() << "'" << std::endl;
 }
 
 int main(void){
