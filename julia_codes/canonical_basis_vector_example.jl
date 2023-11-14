@@ -24,5 +24,8 @@ inner(u::CanonicalBasisVector, A,
 
 # now we can do standard linear algebra using our new vector x
 x = CanonicalBasisVector(2, 4)
-A = randn(4, 4)
 
+# such as matrix-vector multiplication, broadcasting, etc. 
+A = randn(4, 4)
+A * x
+@. 2 * x + 2
