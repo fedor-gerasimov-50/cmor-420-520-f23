@@ -1,3 +1,5 @@
+using LinearAlgebra
+
 # This will define a custom vector type: a canonical basis vector
 #       e_i = [0, 0, ..., 1, ..., 0]
 #                    (ith entry)
